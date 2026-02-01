@@ -18,10 +18,10 @@ except Exception as e:
     ml_model = None
     print(f"❌ Error loading ML model: {e}")
 
-# 2. Load DL Model (CNN-GRU)
+# 2. Load DL Model (DNN)
 try:
     dl_model = load_model('DNN_Model.keras')
-    print("✅ DL Model (CNN-GRU) loaded.")
+    print("✅ DL Model (DNN) loaded.")
 except Exception as e:
     dl_model = None
     print(f"❌ Error loading DL model: {e}")
@@ -116,7 +116,7 @@ def predict_dl():
             prediction_text = "Error: DL Model or Scaler not found."
 
     return render_template('predict.html', 
-                           model_type="Deep Learning (CNN-GRU)",
+                           model_type="Deep Neural Network (DNN Model)",
                            page_class='bg-dl',
                            prediction_text=prediction_text,
                            result_color=result_color)
