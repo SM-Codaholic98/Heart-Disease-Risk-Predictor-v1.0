@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{{ page_class }}">
+    <div class="container-home">
+        <h1>Heart Disease Predictor</h1>
+        <p>Choose your AI Model</p>
+        
+        <div class="button-group">
+            <a href="/predict_ml" class="btn ml-btn">
+                <h2>Machine Learning</h2>
+                <span>CatBoost Model</span>
+            </a>
+            
+            <a href="/predict_dl" class="btn dl-btn">
+                <h2>Deep Learning</h2>
+                <span>CNN-GRU Hybrid Model</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ model_type }} - Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{{ page_class }}">
+
+    <div class="main-container">
+        <div class="glass-form">
+            <h1>Heart Disease Predictor</h1>
+            <h3 style="color: rgb(0, 255, 255); margin-bottom: 20px;">{{ model_type }}</h3>
+
+            <form action="" method="POST">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Age:</label>
+                        <input type="number" name="age" required placeholder="e.g. 50">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Sex:</label>
+                        <select name="sex">
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Chest Pain Type:</label>
+                        <select name="cp">
+                            <option value="1">Typical Angina</option>
+                            <option value="2">Atypical Angina</option>
+                            <option value="3">Non-anginal Pain</option>
+                            <option value="4">Asymptomatic</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Resting BP (mm Hg):</label>
+                        <input type="number" step="0.001" name="trestbps" required placeholder="e.g. 120">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Cholesterol (mg/dl):</label>
+                        <input type="number" step="0.001" name="chol" required placeholder="e.g. 200">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Fasting Blood Sugar > 120:</label>
+                        <select name="fbs">
+                            <option value="0">False</option>
+                            <option value="1">True</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Resting ECG:</label>
+                        <select name="restecg">
+                            <option value="0">Normal</option>
+                            <option value="1">ST-T Abnormality</option>
+                            <option value="2">LV Hypertrophy</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Maximum Heart Rate:</label>
+                        <input type="number" step="0.001" name="thalach" required placeholder="e.g. 150">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Exercise Induced Angina:</label>
+                        <select name="exang">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Oldpeak (ST Depression):</label>
+                        <input type="number" step="0.001" name="oldpeak" required placeholder="e.g. 1.0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>ST Slope:</label>
+                        <select name="slope">
+                            <option value="1">Upsloping</option>
+                            <option value="2">Flat</option>
+                            <option value="3">Downsloping</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="predict-btn">PREDICT RISK</button>
+            </form>
+
+            {% if prediction_text %}
+            <div class="result-box">
+                <h2 style="color: {{ result_color }}; text-shadow: 0 0 5px {{ result_color }};">{{ prediction_text }}</h2>
+            </div>
+            {% endif %}
+            
+            <div style="margin-top: 20px;">
+                <a href="/" style="color: white; text-decoration: none; border-bottom: 1px dotted white;">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
